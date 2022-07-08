@@ -8,7 +8,6 @@
         </div>
         <hr>
         <div class="col-md-12 " style="padding-right: 64px;">
-            {{-- <div class="card mb-30 card-border"> --}}
             <div class="card-box height-100-p widget-style1 p-5">
                 <div class="pb-20">
                     {{-- @dd($edit_vehicle) --}}
@@ -181,7 +180,8 @@
                                     <div class="col-md-12 col-sm-12">
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox mb-5">
-                                                <input type="checkbox" {{ $edit_vehicle['is_active'] == 1 ? 'Checked' : '' }}
+                                                <input type="checkbox"
+                                                    {{ $edit_vehicle['is_active'] == 1 ? 'Checked' : '' }}
                                                     name="is_active" class="custom-control-input is_active"
                                                     id="is_active">
                                                 <label class="custom-control-label " for="is_active">Active</label>
@@ -192,8 +192,9 @@
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox mb-5">
                                                 <input type="checkbox"
-                                                    {{ $edit_vehicle['is_default'] == 1 ? 'Checked' : '' }} name="is_default"
-                                                    class="custom-control-input is_default" id="is_default">
+                                                    {{ $edit_vehicle['is_default'] == 1 ? 'Checked' : '' }}
+                                                    name="is_default" class="custom-control-input is_default"
+                                                    id="is_default">
                                                 <label class="custom-control-label " for="is_default">Default</label>
                                             </div>
                                         </div>

@@ -13,13 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('payment_types', function (Blueprint $table) {
             $table->id();
-            $table->morphs('tokenable');
             $table->string('name');
-            $table->string('token', 64)->unique();
-            $table->text('abilities')->nullable();
-            $table->timestamp('last_used_at')->nullable();
+            $table->string('description')->nullable();
+            $table->text('params')->nullable();
+            $table->integer('sort_order')->nullable();
+            $table->integer('factor_type')->nullable();
+            $table->integer('factor_value')->nullable();
+            $table->integer('is_default')->default(0);
+            $table->integer('is_active')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('payment_types');
     }
 };
