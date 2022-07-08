@@ -11,6 +11,7 @@
             {{-- <div class="card mb-30 card-border"> --}}
             <div class="card-box height-100-p widget-style1 p-5">
                 <div class="pb-20">
+                    {{-- @dd($edit_vehicle) --}}
                     <form action="{{ $route }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @if ($is_edit)
@@ -151,6 +152,30 @@
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Rate Per Hour</label>
+                                            <input type="number" id="rate_per_hour" class="form-control "
+                                                value="{{ old('rate_per_hour', $edit_vehicle['rate_per_hour']) }}"
+                                                name="rate_per_hour" placeholder="Rate Per Hour">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Rate Per Day</label>
+                                            <input type="number" id="rate_per_day" class="form-control "
+                                                value="{{ old('rate_per_day', $edit_vehicle['rate_per_day']) }}"
+                                                name="rate_per_day" placeholder="Rate Per Day">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Rate Per Mile</label>
+                                            <input type="number" id="rate_per_mile" class="form-control "
+                                                value="{{ old('rate_per_mile', $edit_vehicle['rate_per_mile']) }}"
+                                                name="rate_per_mile" placeholder="Rate Per Mile">
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-sm-12">
