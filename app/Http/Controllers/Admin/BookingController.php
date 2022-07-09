@@ -52,12 +52,6 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        $request = $request->all();
-        $request['is_active'] = (isset($request['is_active']) && $request['is_active']) == 'on' ? 1 : 0;
-        $user = User::create($request);
-
-        $user->syncRoles($request['role']);
-        return redirect()->route('user.index')->with('status', 'User has been added successfully');
     }
 
     /**
@@ -79,16 +73,6 @@ class BookingController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Role::all();
-        $data = [
-            'is_edit' => true,
-            'title' => 'Update User',
-            'button' => 'Update',
-            'route' => route('user.update', $user->id),
-            'roles' => $roles,
-            'edit_user' => $user,
-        ];
-        return view('admin.user.form')->with($data);
     }
 
     /**
@@ -100,23 +84,15 @@ class BookingController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-        $request = $request->all();
-        $request['is_active'] = (isset($request['is_active']) && $request['is_active']) == 'on' ? 1 : 0;
-        $user->update($request);
-        $user->syncRoles($request['role']);
-        return redirect()->route('user.index')->with('success', 'User has been updated successfully');
+
     }
 
-    public function update_profile(Request $request, $id)
+    public function journey_details(Request $request)
     {
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        if (!is_null($request->password)) {
-            $user->password = Hash::make($request->password);
-        }
-        $user->update();
-        return redirect()->back()->with('success', 'Profile has been updated successfully');
+        // if ($request->has_return) {
+        // }
+        return `<p>go</p>`;
+
     }
 
     /**
@@ -125,9 +101,8 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $permission)
+    public function destroy()
     {
-        $permission->delete();
-        return redirect()->route('user.index')->with('success', 'Permission has been deleted successfully');
+
     }
 }
