@@ -91,7 +91,15 @@ class BookingController extends Controller
     {
         // if ($request->has_return) {
         // }
-        return `<p>go</p>`;
+
+        $response = \GoogleMaps::load('distancematrix')
+        ->setParam([
+            'origins'       => [$request->address_form],
+            'destinations'  => [$request->address_to],
+            'mode' => 'bicycling',
+            'language' => 'EN'
+        ])->getResponseByKey('rows.elements');
+        return $response;
 
     }
 
