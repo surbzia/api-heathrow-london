@@ -59,8 +59,16 @@ class LocationController extends Controller
     public function store(LocationRequest $request)
     {
         $request = $request->all();
-        $request['is_active'] = (isset($request['is_active']) && $request['is_active']) == 'on' ? 1 : 0;
-        Location::create($request);
+        dd($request);
+        $full_address = ['full_address' => $request['full_address'], 'latitude' => $request['latitude'], 'longitude' => $request['longitude']];
+        $location = new Location();
+        $location->name = $request['name'];
+        $location->post_code = $request['post_code'];
+        $location->is_active = (isset($request['is_active']) && $request['is_active']) == 'on' ? 1 : 0;
+        $location->full_address = json_encode($full_address);
+        $location->category_id = $request['category_id'];
+        $location->sort_order = $request['sort_order'];
+        $location->save();
 
         return redirect()->route('location.index')->with('success', 'Location has been added successfully');
     }
@@ -106,8 +114,16 @@ class LocationController extends Controller
     public function update(LocationRequest $request, Location $location)
     {
         $request = $request->all();
-        $request['is_active'] = (isset($request['is_active']) && $request['is_active']) == 'on' ? 1 : 0;
-        $location->update($request);
+        $full_address = ['full_address' => $request['full_address'], 'latitude' => $request['latitude'], 'longitude' => $request['longitude']];
+
+        $location->name = $request['name'];
+        $location->post_code = $request['post_code'];
+        $location->is_active = (isset($request['is_active']) && $request['is_active']) == 'on' ? 1 : 0;
+        $location->full_address = json_encode($full_address);
+        $location->category_id = $request['category_id'];
+        $location->sort_order = $request['sort_order'];
+        $location->save();
+
         return redirect()->route('location.index')->with('success', 'Location has been deleted successfully');
     }
 

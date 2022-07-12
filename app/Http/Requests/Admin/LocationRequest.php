@@ -32,6 +32,7 @@ class LocationRequest extends FormRequest
             'name' =>     'required|unique:locations,name,' . $id,
             'post_code' => 'required|unique:locations,post_code,' . $id,
             'category_id' => 'required',
+            'full_address' => 'required',
         ];
     }
 }

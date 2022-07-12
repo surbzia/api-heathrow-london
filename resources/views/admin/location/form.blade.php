@@ -71,7 +71,7 @@
                             <div class="col-md-8 col-sm-12">
                                 <div class="form-group">
                                     <label>Full Address</label>
-                                    <input type="text" id="autocomplete"
+                                    <input type="text" id="full_address"
                                         class="form-control @error('full_address') is-invalid @enderror"" value="{{ old('full_address', $edit_location->full_address) }}"
                                         name="full_address" placeholder="Full Address">
                                 </div>
@@ -132,7 +132,7 @@
 
     google.maps.event.addDomListener(window, 'load', initialize);
     function initialize() {
-        var input = document.getElementById('autocomplete');
+        var input = document.getElementById('full_address');
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.addListener('place_changed', function () {
             var place = autocomplete.getPlace();
