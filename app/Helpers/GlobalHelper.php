@@ -16,9 +16,10 @@ if (!function_exists('image_url')) {
     }
 }
 
-if (!function_exists('getMapKeyScript')) {
-    function getMapKeyScript()
+if (!function_exists('GoogleApiKey')) {
+    function GoogleApiKey()
     {
-        return '2323bgkj23h4234hl2h4hyasidfyasdfydf9a';
+        // return '2323bgkj23h4234hl2h4hyasidfyasdfydf9a';
+        return 'AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg';
     }
 }

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -31,20 +30,21 @@
     <link rel="stylesheet" type="text/css"
         href="{{ asset('templete/plugins/datatables/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('templete/vendors/styles/style.css') }}">
-            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-            {{-- <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/> --}}
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/> --}}
 
 </head>
 
 <body>
     <style>
         .slick-prev:before {
-  color: black;
-}
-.slick-next:before {
-  color: black;
-}
+            color: black;
+        }
+
+        .slick-next:before {
+            color: black;
+        }
     </style>
     {{-- <div class="pre-loader">
         <div class="pre-loader-box">
@@ -67,7 +67,7 @@
         <div class="mb-15 ml-0 mt-15">
             @yield('content')
         </div>
-          @include('admin.layouts.toaster')
+        @include('admin.layouts.toaster')
     </div>
 
     @yield('script')
@@ -82,11 +82,11 @@
                 $(".alert").slideUp(500);
             });
             $('.vehicle-slider').slick({
-                     dots: true,
-                     infinite: true,
-                     centerMode: true,
-                     slidesToShow: 3,
-                     slidesToScroll: 3
+                dots: true,
+                infinite: true,
+                centerMode: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
             });
         });
     </script>
@@ -104,9 +104,12 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-        {{-- <script type="text/javascript" src="{{ asset('slick/slick.min.js') }}"></script> --}}
-        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    {{-- <script type="text/javascript" src="{{ asset('slick/slick.min.js') }}"></script> --}}
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {{-- <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places"
+        defer></script> --}}
 
 </body>
 

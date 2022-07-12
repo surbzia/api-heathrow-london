@@ -22,6 +22,7 @@
                                     <label>Display Name</label>
                                     <input type="text" id="name"
                                         value="{{ old('name', $edit_location->name) }}"
+                                        id="address_name"
                                         class="form-control @error('name') is-invalid @enderror"" name="name"
                                         placeholder="Display Name">
                                     @error('name')
@@ -70,7 +71,7 @@
                             <div class="col-md-8 col-sm-12">
                                 <div class="form-group">
                                     <label>Full Address</label>
-                                    <input type="text" id="full_address"
+                                    <input type="text" id="autocomplete"
                                         class="form-control @error('full_address') is-invalid @enderror"" value="{{ old('full_address', $edit_location->full_address) }}"
                                         name="full_address" placeholder="Full Address">
                                 </div>
@@ -80,6 +81,10 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <input type="hidden" id="latitude" name="latitude"  >
+                            <input type="hidden" name="longitude" id="longitude">
+
                             <div class="col-md-4 col-sm-12">
                                 <div class="form-group">
                                     <label>Sort Order</label>
@@ -116,7 +121,27 @@
         </div>
     </div>
 @endsection
+{{-- @include('admin.partial.google-place-search') --}}
 @section('script')
+{{-- <script type="text/javascript"
+    src="https://maps.google.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg=places"></script> --}}
+
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key={{GoogleApiKey()}}&libraries=places"></script>
     <script>
-    </script>
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+    function initialize() {
+        var input = document.getElementById('autocomplete');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function () {
+            var place = autocomplete.getPlace();
+            $('#latitude').val(place.geometry['location'].lat());
+            $('#longitude').val(place.geometry['location'].lng());
+            $("#latitudeArea").removeClass("d-none");
+            $("#longtitudeArea").removeClass("d-none");
+        });
+    }
+</script>
+
 @endsection
