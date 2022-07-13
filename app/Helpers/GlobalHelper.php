@@ -13,7 +13,11 @@ if (!function_exists('activeNav')) {
 if (!function_exists('image_url')) {
     function image_url($img)
     {
-        return  url('storage/' . str_replace('public', '', $img));
+        if (env('APP_URL') != 'http://localhost') {
+            return  url('storage' .  $img);
+        }
+        return  url('storage' . str_replace('public', '', $img));
+
     }
 }
 
