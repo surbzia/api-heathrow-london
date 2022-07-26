@@ -38,6 +38,7 @@
 
 <body>
     <style>
+
         .slick-prev:before {
             color: black;
         }
@@ -75,6 +76,7 @@
 
     <script>
         $(document).ready(function() {
+
 
             $('#permission').DataTable();
 

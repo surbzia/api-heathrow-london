@@ -39,10 +39,6 @@
         padding: 4px;
     }
 
-    #toast-container>.toast {
-        background-image: none !important;
-    }
-
     .toast-success {
         background-color: rgb(16, 126, 1) !important;
     }
@@ -70,25 +66,25 @@
         margin: auto 0.5em auto -1.5em;
     }
 
-    #toast-container>.toast-warning:before {
+    /* #toast-container>.toast-warning::before {
         content: "\f003";
         background-color: rgb(206, 151, 0) !important;
     }
 
-    #toast-container>.toast-error:before {
+    #toast-container>.toast-error::before {
         content: "\f001";
         background-color: rgb(216, 4, 4) !important;
     }
 
-    #toast-container>.toast-info:before {
+    #toast-container>.toast-info::before {
         content: "\f005";
         background-color: rgb(2, 125, 173) !important;
-    }
+    } */
 
-    #toast-container>.toast-success:before {
+    /* #toast-container>.toast-success::before {
         content: "\f002";
         background-color: rgb(16, 126, 1) !important;
-    }
+    } */
 </style>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </link>
