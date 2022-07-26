@@ -28,6 +28,6 @@ use App\Http\Middleware\Authenticate;
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
-Auth::routes();
+// Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

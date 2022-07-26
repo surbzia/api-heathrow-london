@@ -109,9 +109,10 @@ class UserController extends Controller
     public function update_profile(Request $request, $id)
     {
         $user = User::find($id);
+        $user->title = $request->title;
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
-        $user->email = $request->email;
+        // $user->email = $request->email;
         if (!is_null($request->password)) {
             $user->password = Hash::make($request->password);
         }

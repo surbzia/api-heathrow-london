@@ -31,8 +31,9 @@ Route::get('/clear', function () {
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
-
 Auth::routes();
+
+
 
 Route::middleware([AuthenticateAdmin::class])->group(
     function () {

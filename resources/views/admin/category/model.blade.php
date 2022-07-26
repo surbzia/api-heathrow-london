@@ -14,7 +14,7 @@
                             <div class="form-group">
                                 <label>Category Name</label>
                                 <input type="text" id="name" value="" class="form-control" name="name"
-                                    placeholder="Role Name">
+                                    placeholder="Category Name">
                             </div>
                             <div class="form-group">
                                 <label>Sort Order</label>
